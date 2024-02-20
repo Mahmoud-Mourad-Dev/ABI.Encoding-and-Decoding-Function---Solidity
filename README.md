@@ -10,6 +10,43 @@ An array containing the values you want to encode. These values can be of variou
 A byte string representing the encoded data.
 ### 4-Usage:
 Passing arguments to smart contract functions during transactions.Creating data for custom events emitted by smart contracts.Encoding data for off-chain processing or storage.
+## Encode Number example
+```solidity
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.8.23;
+
+contract encodeNumber{
+    function encodeAge() public pure returns(bytes memory){
+        bytes memory age= abi.encode(30);
+        return age;
+
+    }
+}
+
+// OUTPUT
+// bytes: 0x000000000000000000000000000000000000000000000000000000000000001e
+```
+## Encode String Example
+```solidity
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.8.23;
+
+contract encodeString{
+    function encodeName() public pure returns(bytes memory){
+        bytes memory age= abi.encode("mahmoud");
+        return age;
+
+    }
+    
+}
+//OUTPUT
+/* bytes: 0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000
+00000000000000000000000000000000076d61686d6f756400000000000000000000000000000000000000000000000000
+*/
+
+```
+
+
 
 ## abi.decode
 ### 1-Purpose:
