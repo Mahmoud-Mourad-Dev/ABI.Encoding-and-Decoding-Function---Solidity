@@ -33,8 +33,8 @@ pragma solidity ^0.8.23;
 
 contract encodeString{
     function encodeName() public pure returns(bytes memory){
-        bytes memory age= abi.encode("mahmoud");
-        return age;
+        bytes memory name= abi.encode("mahmoud");
+        return name;
 
     }
     
@@ -45,6 +45,8 @@ contract encodeString{
 */
 
 ```
+
+___
 
 
 
@@ -59,3 +61,50 @@ An array containing the decoded values.
 Decoding return values from smart contract functions.
 Processing data from custom events emitted by smart contracts.
 Decoding data received from off-chain sources.
+## decode number example
+```solidity
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.8.23;
+
+contract decodeNumber{
+    
+
+        function decodeAge(bytes memory encodeInteger) public pure returns(uint256){
+        uint256 age= abi.decode(encodeInteger,(uint256));
+        return age;
+    }
+}
+/* INPUT
+bytes: 0x000000000000000000000000000000000000000000000000000000000000001e
+
+ OUTPUT
+ uint256 :30
+ */
+```
+
+
+## decode String example
+```solidity
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.8.23;
+
+contract dencodeString{
+    
+     // function take bytes memory encodingString as input 
+
+    function decodeName(bytes memory encodedString) public pure returns(string memory){
+    string memory name = abi.decode(encodedString, (string));
+      return name;
+   }
+
+}
+/*
+INPUT CODE
+0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000
+00000000000000000000000000000000076d61686d6f756400000000000000000000000000000000000000000000000000
+
+OUTPUT
+mahmoud
+*/
+
+```
