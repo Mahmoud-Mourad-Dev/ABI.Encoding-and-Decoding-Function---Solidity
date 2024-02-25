@@ -1,5 +1,7 @@
 # ABI.Encoding-and-Decoding-Function---Solidity
-In Solidity, abi.encode and abi.decode are two essential functions used to convert data between human-readable formats and the format used by the Ethereum Virtual Machine (EVM). Understanding these functions is crucial for interacting with smart contracts and building DApps effectively.
+- In Solidity, abi.encode and abi.decode are two essential functions used to convert data between human-readable formats
+ and the format used by the Ethereum Virtual Machine (EVM). Understanding these functions is crucial for interacting with smart contracts and building DApps effectively.
+- Encoding is always in hexadecimal
 
 ## abi.encode
 ### 1-Purpose:
@@ -44,6 +46,26 @@ contract encodeString{
 00000000000000000000000000000000076d61686d6f756400000000000000000000000000000000000000000000000000
 */
 
+```
+
+## Encode Address and Integer Example
+
+```solidity
+
+/ SPDX-License-Identifier: MIT
+pragma solidity 0.8.23;
+
+contract encodedAddress{
+    function encoded(address _address, uint _uint) public pure returns(bytes memory){
+        return (abi.encode(_address,_uint));
+    }
+
+    /* OUTPUT
+    bytes: 0x0000000000000000000000005b38da6a701c568545dcfcb03fcb875f56beddc4
+    0000000000000000000000000000000000000000000000000000000000000019
+    */
+
+}
 ```
 
 ___
